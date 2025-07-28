@@ -1,0 +1,144 @@
+:root {
+    --fontTitulo: "Kavoon", serif;
+    --fontMenu: "Coiny", system-ui;
+    --fontNormal: "DM Sans", sans-serif;
+    --corLilasFraco: rgb(212, 192, 212);
+    --corLilasForte: #9A70AA
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: block;
+    background-color: antiquewhite;
+}
+
+#cabecalho {
+    grid-area: cabecalho;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    box-shadow: 1px 1px 5px rgb(212, 192, 212);
+    padding: 3px;
+    font-size: 40px;
+}
+
+h1 {
+    font-family: "Kavoon", serif;
+    letter-spacing: 3px;
+    color: #9A70AA;
+    text-shadow: -2px 2px 0px rgb(255, 255, 255);
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-family: var(--fontMenu);
+}
+
+#container {
+    display: flex;
+    padding: 5px;
+    width: 99%;
+    flex-wrap: 1;
+    max-height: 100%;
+}
+
+#logoSite {
+    margin: 10px;
+    height: 110px;
+}
+
+#menuPrincipal {
+    grid-area: menuPrincipal;
+    background-color: antiquewhite;
+    width: 140px;
+    flex-shrink: 0;
+    /* Impede que esta div encolha */
+}
+
+a {
+    display: block;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding: 5px;
+    padding-right: 15px;
+    font-family: var(--fontMenu);
+    color: var(--corLilasForte);
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-right-style: solid;
+    border-color: var(--corLilasForte);
+    cursor: pointer;
+    list-style-type: none;
+    text-decoration: none;
+    white-space: nowrap;
+    min-width: 20%;
+}
+
+a:hover {
+    background-color: var(--corLilasFraco);
+}
+
+article {
+    display: flexbox;
+    width: 100%;
+}
+
+.tituloSessao {
+    justify-self: center;
+    font-family: var(--fontMenu);
+    color:#9A70AA;
+    text-shadow: -2px 2px 1px white;
+
+}
+
+#corpoAdocao{
+    display: flex;
+    background-color: aliceblue;
+    width: 100%;
+    height: 100%;
+    border: 1px solid;
+    border-color: #9A70AA;
+    box-shadow: -2px 2px 3px var(--corLilasFraco);
+}
+
+.cartazAdocao{
+    background-color: white;
+    padding: 5px;
+    margin: 10px;
+    justify-content: space-between;
+    width: 150px;
+    border: 1px solid;
+    box-shadow: -2px 2px 3px gray;
+
+}
+.nomeAdocao{
+    justify-self: center;
+    font-family: var(--fontMenu);
+    color: #9A70AA;
+    text-shadow: -2px 2px 0px lightgray;
+
+}
+
+.fotoCartaz{
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+    border: 1px solid;
+}
+
+#rodape {
+    grid-area: rodape;
+    position: fixed;
+    bottom: 0;
+    display: block;
+    justify-self: center;
+    font-family: var(--fontNormal);
+    padding: 20px;
+    background-color: antiquewhite;
+
+}
