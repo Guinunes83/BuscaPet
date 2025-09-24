@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuscaPet - Encontre seu novo amigo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Sriracha&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="site-header">
+        <img src="/assets/Logo - BuscaPet.png" alt="" srcset="">
+        <h1>BuscaPet</h1>
+    </header>
+
+    <nav class="site-menu">
+        <ul>
+            <li><a href="index.html" >BuscaPet</a></li>
+            <li><a href="/buscamigo.html" class="active">BuscaMigo</a></li>
+            <li><a href="/buscajuda.html">BuscaJuda</a></li>
+            <li><a href="/contatos.html">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main class="site-body">
+        <section class="pet-catalog">
+
+            <!-- Exemplo de Perfil 1 -->
+            <article class="pet-card">
+                <img src="https://i.pravatar.cc/300?u=a042581f4e29026704d" alt="Foto de Maria Silva"
+                    style="object-fit: cover; width: 100%; height: 220px;">
+                <div class="pet-info">
+                    <h2>Maria Silva</h2>
+                    <p><strong>COD.:</strong> AD001</p>
+                    <p><strong>Local:</strong> São Paulo / SP</p>
+                    <p><strong>Interesses:</strong> Cães de porte pequeno, adultos.</p>
+                    <p><strong>Sobre:</strong> Tenho uma rotina calma, trabalho em casa e busco um companheiro tranquilo
+                        para passeios leves no parque.</p>
+                </div>
+            </article>
+
+            <!-- Exemplo de Perfil 2 -->
+            <article class="pet-card">
+                <img src="https://i.pravatar.cc/300?u=a042581f4e29026704e" alt="Foto de João Costa"
+                    style="object-fit: cover; width: 100%; height: 220px;">
+                <div class="pet-info">
+                    <h2>João Costa</h2>
+                    <p><strong>COD.:</strong> AD002</p>
+                    <p><strong>Local:</strong> Rio de Janeiro / RJ</p>
+                    <p><strong>Interesses:</strong> Gatos filhotes ou adultos.</p>
+                    <p><strong>Sobre:</strong> Moro em apartamento e procuro um gatinho para ser o rei da casa. Sou
+                        muito carinhoso e adoro brincar.</p>
+                </div>
+            </article>
+
+            <!-- Exemplo de Perfil 3 (Tutor Temporário) -->
+            <article class="pet-card">
+                <img src="https://i.pravatar.cc/300?u=a042581f4e29026704f" alt="Foto de Ana e Pedro"
+                    style="object-fit: cover; width: 100%; height: 220px;">
+                <div class="pet-info">
+                    <h2>Ana e Pedro (Lar Temporário)</h2>
+                    <p><strong>COD.:</strong> LT001</p>
+                    <p><strong>Local:</strong> Belo Horizonte / MG</p>
+                    <p><strong>Interesses:</strong> Qualquer espécie, porte médio/grande.</p>
+                    <p><strong>Sobre:</strong> Temos uma casa com quintal e experiência em cuidar de animais. Oferecemos
+                        lar temporário para ajudar na adaptação.</p>
+                </div>
+            </article>
+
+            <!-- Adicione mais perfis de adotantes ou tutores aqui -->
+
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 BuscaPet. Todos os direitos reservados.</p>
+    </footer>
+
+    <div id="pet-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="slider">
+                <img id="modal-image" src="" alt="Foto do Pet em destaque">
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

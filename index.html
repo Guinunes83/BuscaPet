@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuscaPet - Encontre seu novo amigo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Sriracha&display=swap');
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <img src="/assets/Logo - BuscaPet.png" alt="" srcset="">
+        <h1>BuscaPet</h1>
+    </header>
+
+    <nav class="site-menu">
+        <ul>
+            <li><a href="index.html" class="active">BuscaPet</a></li>
+            <li><a href="/buscamigo.html">BuscaMigo</a></li>
+            <li><a href="/buscajuda.html">BuscaJuda</a></li>
+            <li><a href="/contatos.html">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main class="site-body">
+        <section class="pet-catalog">
+            
+            <!-- Pet 1 -->
+            <article class="pet-card" data-pet-id="1">
+                <div class="pet-image-container">
+                    <img src="https://placedog.net/300/300?id=1" alt="Foto do pet Caramelo">
+                    <div class="click-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                    </div>
+                </div>
+                <div class="pet-info">
+                    <h2>Caramelo</h2>
+                    <p><strong>Idade:</strong> 2 anos</p>
+                    <p><strong>Raça:</strong> SRD (Sem Raça Definida)</p>
+                    <p><strong>Personalidade:</strong> Muito dócil e adora um carinho na barriga.</p>
+                </div>
+            </article>
+
+            <!-- Pet 2 -->
+            <article class="pet-card" data-pet-id="2">
+                 <div class="pet-image-container">
+                    <img src="https://placedog.net/300/300?id=2" alt="Foto do pet Flocos">
+                    <div class="click-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                    </div>
+                </div>
+                <div class="pet-info">
+                    <h2>Flocos</h2>
+                    <p><strong>Idade:</strong> 4 anos</p>
+                    <p><strong>Raça:</strong> Poodle</p>
+                    <p><strong>Personalidade:</strong> Agitado e brincalhão, companheiro para todas as horas.</p>
+                </div>
+            </article>
+
+            <!-- Pet 3 -->
+            <article class="pet-card" data-pet-id="3">
+                <div class="pet-image-container">
+                    <img src="https://placedog.net/300/300?id=3" alt="Foto do pet Luna">
+                    <div class="click-indicator">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                    </div>
+                </div>
+                <div class="pet-info">
+                    <h2>Luna</h2>
+                    <p><strong>Idade:</strong> 1 ano</p>
+                    <p><strong>Raça:</strong> Siamês</p>
+                    <p><strong>Personalidade:</strong> Calma e observadora, ama um colo quentinho.</p>
+                </div>
+            </article>
+            
+            <!-- Adicione mais pets aqui seguindo o mesmo modelo -->
+            
+            </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 BuscaPet. Todos os direitos reservados.</p>
+    </footer>
+
+    <div id="pet-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="slider">
+                <img id="modal-image" src="" alt="Foto do Pet em destaque">
+                <a class="prev">&#10094;</a>
+                <a class="next">&#10095;</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

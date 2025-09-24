@@ -1,0 +1,513 @@
+:root {
+    --pink-pastel: #f8c8dc; /* Rosa pastel */
+    --lilac-pastel: #dcd0ff; /* Lilás pastel */
+    --white: #ffffff;
+    --text-color: #5c5c5c;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #fdf9ff; /* Um branco levemente lilás para o fundo */
+    color: var(--text-color);
+}
+
+/* ---------------------------------- */
+/* CABEÇALHO, MENU E RODAPÉ       */
+/* ---------------------------------- */
+.site-header {
+    background-color: var(--pink-pastel);
+    padding: 20px;
+    text-align: center;
+    color: var(--white);
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.site-header h1 {
+    margin: 0;
+}
+
+.site-menu {
+    background-color: var(--lilac-pastel);
+    padding: 5px 0;
+}
+
+.site-menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.site-menu li a {
+    display: block;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.site-menu li a:hover, .site-menu li a.active {
+    background-color: var(--pink-pastel);
+}
+
+.site-footer {
+    background-color: var(--pink-pastel);
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* ---------------------------------- */
+/* CORPO PRINCIPAL DO SITE        */
+/* ---------------------------------- */
+.site-body {
+    padding: 30px;
+    min-height: 70vh;
+}
+
+/* ---------------------------------- */
+/* PÁGINA 01 e 02 - CATÁLOGOS      */
+/* ---------------------------------- */
+.pet-catalog {
+    display: flex; /* Usando flexbox para centralizar */
+    justify-content: center; /* Alinha os cards no centro */
+    flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+    gap: 25px;
+}
+
+.pet-card {
+    background-color: var(--white);
+    border: 1px solid #eee;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 280px; /* Largura fixa para os cards */
+}
+
+.pet-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.pet-card .image-container {
+    position: relative;
+    cursor: pointer;
+}
+
+.pet-card .image-container img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
+
+.pet-card .click-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none; /* O ícone não interfere no clique da imagem */
+}
+
+.pet-card .image-container:hover .click-icon {
+    opacity: 1;
+}
+
+.pet-info {
+    padding: 15px;
+}
+
+.pet-info h2 {
+    margin-top: 0;
+    color: var(--lilac-pastel);
+}
+
+.pet-info .pet-code {
+    font-size: 0.9em;
+    color: #999;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+/* Modal (Galeria de Fotos) */
+.modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s;
+}
+
+.modal.visible {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s, opacity 0.3s;
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.modal-content .slider {
+    position: relative;
+}
+
+#modal-image {
+    max-width: 100%;
+    max-height: 80vh;
+    display: block;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #aaa;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: rgba(0,0,0,0.3);
+    user-select: none;
+    transition: background-color 0.3s;
+}
+.prev { left: 0; }
+.next { right: 0; }
+
+/* ---------------------------------- */
+/* PÁGINA 03 - AÇÕES SOCIAIS       */
+/* ---------------------------------- */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.hero-banner {
+    position: relative;
+    height: 350px;
+    border-radius: 10px;
+    background-image: url('https://images.unsplash.com/photo-1541882430930-14e1e0063f45?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero-banner::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+
+.hero-text {
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+.help-section {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.help-section h2 {
+    font-size: 2rem;
+    color: var(--lilac-pastel);
+    margin-bottom: 30px;
+}
+
+.help-options {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.help-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.help-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.help-card svg {
+    color: var(--pink-pastel);
+    margin-bottom: 15px;
+}
+
+.contact-form-section {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    max-width: 700px;
+    margin: 0 auto 50px auto;
+}
+
+.contact-form-section h2 {
+    text-align: center;
+    color: var(--lilac-pastel);
+}
+.contact-form-section p {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+#contact-form button {
+    background-color: var(--pink-pastel);
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#contact-form button:hover {
+    background-color: var(--lilac-pastel);
+}
+
+#success-message {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* ---------------------------------- */
+/* PÁGINA 04 - CONTATO          */
+/* ---------------------------------- */
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.contact-header h1 {
+    color: var(--lilac-pastel);
+    font-size: 2.5rem;
+}
+
+.contact-wrapper {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact-info, .contact-form-col {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.social-title {
+    margin-top: 30px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+.social-links a {
+    color: var(--lilac-pastel);
+    transition: color 0.3s;
+}
+.social-links a:hover {
+    color: var(--pink-pastel);
+}
+
+.faq-section {
+    margin-top: 40px;
+}
+.faq-item {
+    border-bottom: 1px solid #eee;
+}
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 15px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    color: #555;
+}
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 5px;
+    font-size: 1.5rem;
+    color: var(--lilac-pastel);
+    transition: transform 0.3s;
+}
+.faq-question.active::after {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+}
+.faq-answer p {
+    padding: 0 0 15px 0;
+    margin: 0;
+}
+.faq-answer.open {
+    max-height: 200px; /* Altura suficiente para a resposta */
+}
+
+/* Formulário da página de contato */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #666;
+}
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+#general-contact-form > button {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+
+
+.faq-question::after {
+    content: '+';
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: var(--lilac-pastel);
+    transition: transform 0.3s;
+}
+
+.faq-question.active::after {
+    content: '−';
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    padding: 0 10px;
+}
+
+.faq-answer p {
+    padding-bottom: 15px;
+}
+]
+
+/* Estilo do formulário com labels acima dos campos */
+.form-group {
+    margin-bottom: 1.25rem; /* Espaçamento entre os campos */
+}
+
+.form-group label {
+    display: block; /* Faz o label ocupar a linha inteira */
+    margin-bottom: 0.5rem; /* Espaço entre o label e o campo */
+    font-weight: bold;
+    color: #666;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%; /* Faz o campo ocupar toda a largura disponível */
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box; /* Garante que o padding não aumente a largura */
+}
+
+/* Garante que o botão ocupe toda a largura no final */
+#general-contact-form > button {
+    width: 100%;
+    margin-top: 1rem; /* Espaço acima do botão */
+}
