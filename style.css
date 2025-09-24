@@ -1,3 +1,6 @@
+/* ---------------------------------- */
+/* ESTILOS GLOBAIS E BASE        */
+/* ---------------------------------- */
 :root {
     --pink-pastel: #f8c8dc; /* Rosa pastel */
     --lilac-pastel: #dcd0ff; /* Lilás pastel */
@@ -26,10 +29,13 @@ body {
 
 .site-header h1 {
     margin: 0;
+    letter-spacing: 10px;
+    text-shadow: 1px 1px 2px violet;
+    font-family:"Cherry Bomb One", system-ui;
 }
 
 .site-menu {
-    background-color: var(--lilac-pastel);
+    background-color: var(--pink-pastel);
     padding: 5px 0;
 }
 
@@ -42,6 +48,9 @@ body {
 }
 
 .site-menu li a {
+    font-family: "Sriracha", cursive;
+    text-shadow: 1px 1px 2px violet;
+    letter-spacing: 5px;
     display: block;
     padding: 15px 25px;
     text-decoration: none;
@@ -51,7 +60,7 @@ body {
 }
 
 .site-menu li a:hover, .site-menu li a.active {
-    background-color: var(--pink-pastel);
+    background-color: var(--lilac-pastel);
 }
 
 .site-footer {
@@ -73,9 +82,9 @@ body {
 /* PÁGINA 01 e 02 - CATÁLOGOS      */
 /* ---------------------------------- */
 .pet-catalog {
-    display: flex; /* Usando flexbox para centralizar */
-    justify-content: center; /* Alinha os cards no centro */
-    flex-wrap: wrap; /* Permite que os cards quebrem a linha */
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 25px;
 }
 
@@ -86,7 +95,7 @@ body {
     box-shadow: 0 4px 8px rgba(0,0,0,0.08);
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
-    width: 280px; /* Largura fixa para os cards */
+    width: 280px;
 }
 
 .pet-card:hover {
@@ -104,20 +113,6 @@ body {
     height: 220px;
     object-fit: cover;
     display: block;
-}
-
-.pet-card .click-icon {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    color: rgba(255, 255, 255, 0.7);
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none; /* O ícone não interfere no clique da imagem */
-}
-
-.pet-card .image-container:hover .click-icon {
-    opacity: 1;
 }
 
 .pet-info {
@@ -426,7 +421,7 @@ body {
     margin: 0;
 }
 .faq-answer.open {
-    max-height: 200px; /* Altura suficiente para a resposta */
+    max-height: 200px;
 }
 
 /* Formulário da página de contato */
@@ -454,60 +449,3 @@ body {
     margin-top: 1rem;
 }
 
-
-
-.faq-question::after {
-    content: '+';
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 1.5rem;
-    color: var(--lilac-pastel);
-    transition: transform 0.3s;
-}
-
-.faq-question.active::after {
-    content: '−';
-    transform: translateY(-50%) rotate(180deg);
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out;
-    padding: 0 10px;
-}
-
-.faq-answer p {
-    padding-bottom: 15px;
-}
-]
-
-/* Estilo do formulário com labels acima dos campos */
-.form-group {
-    margin-bottom: 1.25rem; /* Espaçamento entre os campos */
-}
-
-.form-group label {
-    display: block; /* Faz o label ocupar a linha inteira */
-    margin-bottom: 0.5rem; /* Espaço entre o label e o campo */
-    font-weight: bold;
-    color: #666;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%; /* Faz o campo ocupar toda a largura disponível */
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: Arial, sans-serif;
-    box-sizing: border-box; /* Garante que o padding não aumente a largura */
-}
-
-/* Garante que o botão ocupe toda a largura no final */
-#general-contact-form > button {
-    width: 100%;
-    margin-top: 1rem; /* Espaço acima do botão */
-}

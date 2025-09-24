@@ -1,156 +1,136 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // --- DADOS DOS PETS (SIMULANDO UM BANCO DE DADOS) ---
+    /* ---------------------------------- */
+    /* LÓGICA DA GALERIA DE FOTOS (PÁGINA 01) */
+    /* ---------------------------------- */
     const petData = {
-        '1': {
-            name: 'Caramelo',
-            images: [
-                'https://placedog.net/600/400?id=1',
-                'https://placedog.net/600/400?id=101',
-                'https://placedog.net/600/400?id=102'
-            ]
-        },
-        '2': {
-            name: 'Flocos',
-            images: [
-                'https://placedog.net/600/400?id=2',
-                'https://placedog.net/600/400?id=103'
-            ]
-        },
-        '3': {
-            name: 'Luna',
-            images: [
-                'https://placedog.net/600/400?id=3',
-                'https://placedog.net/600/400?id=104',
-                'https://placedog.net/600/400?id=105',
-                'https://placedog.net/600/400?id=106'
-            ]
-        }
+        '1': { name: 'Caramelo', images: ['https://placedog.net/600/400?id=1', 'https://placedog.net/600/400?id=101', 'https://placedog.net/600/400?id=102'] },
+        '2': { name: 'Flocos', images: ['https://placedog.net/600/400?id=2', 'https://placedog.net/600/400?id=103'] },
+        '3': { name: 'Luna', images: ['https://placedog.net/600/400?id=3', 'https://placedog.net/600/400?id=104', 'https://placedog.net/600/400?id=105'] }
     };
 
-    // --- VARIÁVEIS DO MODAL ---
     const modal = document.getElementById('pet-modal');
-    const modalImage = document.getElementById('modal-image');
-    const closeButton = document.querySelector('.close-button');
-    const prevButton = document.querySelector('.prev');
-    const nextButton = document.querySelector('.next');
-    
-    let currentPetId = null;
-    let currentImageIndex = 0;
-
-    // --- FUNÇÕES PARA CONTROLAR O MODAL ---
-
-    function openModal(petId) {
-        currentPetId = petId;
-        currentImageIndex = 0;
-        updateModalImage();
-        modal.classList.add('visible');
-    }
-
-    function closeModal() {
-        modal.classList.remove('visible');
-    }
-
-    function updateModalImage() {
-        const pet = petData[currentPetId];
-        modalImage.src = pet.images[currentImageIndex];
-        modalImage.alt = `Foto de ${pet.name} ${currentImageIndex + 1} de ${pet.images.length}`;
-    }
-
-    function changeSlide(direction) {
-        const pet = petData[currentPetId];
-        currentImageIndex += direction;
-
-        if (currentImageIndex >= pet.images.length) {
-            currentImageIndex = 0;
-        } else if (currentImageIndex < 0) {
-            currentImageIndex = pet.images.length - 1;
-        }
+    if (modal) {
+        const modalImage = document.getElementById('modal-image');
+        const closeButton = modal.querySelector('.close-button');
+        const prevButton = modal.querySelector('.prev');
+        const nextButton = modal.querySelector('.next');
         
-        updateModalImage();
+        let currentPetId = null;
+        let currentImageIndex = 0;
+
+        function updateModalImage() {
+            const pet = petData[currentPetId];
+            modalImage.src = pet.images[currentImageIndex];
+            modalImage.alt = `Foto de ${pet.name} ${currentImageIndex + 1}`;
+        }
+
+        function changeSlide(direction) {
+            const petImages = petData[currentPetId].images;
+            currentImageIndex = (currentImageIndex + direction + petImages.length) % petImages.length;
+            updateModalImage();
+        }
+
+        document.querySelectorAll('.pet-card .image-container').forEach(container => {
+            container.addEventListener('click', () => {
+                currentPetId = container.closest('.pet-card').dataset.petId;
+                currentImageIndex = 0;
+                updateModalImage();
+                modal.classList.add('visible');
+            });
+        });
+
+        closeButton.addEventListener('click', () => modal.classList.remove('visible'));
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('visible'); });
+        prevButton.addEventListener('click', () => changeSlide(-1));
+        nextButton.addEventListener('click', () => changeSlide(1));
     }
 
-    // --- ADICIONANDO OS EVENTOS ---
 
-    // ALTERAÇÃO AQUI: Ouvindo o clique no novo container da imagem
-    document.querySelectorAll('.pet-image-container').forEach(container => {
-        container.addEventListener('click', () => {
-            const petId = container.closest('.pet-card').dataset.petId;
-            openModal(petId);
+    /* ---------------------------------- */
+    /* LÓGICA DO FAQ (PÁGINA 04)      */
+    /* ---------------------------------- */
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(button => {
+        button.addEventListener('click', () => {
+            const answer = button.nextElementSibling;
+            const isOpen = answer.classList.contains('open');
+            
+            // Fecha todas as respostas abertas
+            document.querySelectorAll('.faq-answer.open').forEach(openAnswer => {
+                openAnswer.classList.remove('open');
+                openAnswer.previousElementSibling.classList.remove('active');
+            });
+            
+            // Abre ou fecha a resposta clicada
+            if (!isOpen) {
+                answer.classList.add('open');
+                button.classList.add('active');
+            }
         });
     });
 
-    // Fechar o modal
-    closeButton.addEventListener('click', closeModal);
-    modal.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            closeModal();
-        }
-    });
 
-    // Mudar de foto
-    prevButton.addEventListener('click', () => changeSlide(-1));
-    nextButton.addEventListener('click', () => changeSlide(1));
-
-});
-// Verifica se o formulário de contato existe na página atual
-const contactForm = document.getElementById('contact-form');
-
-if (contactForm) {
-    contactForm.addEventListener('submit', function(event) {
-        // 1. Impede o comportamento padrão do formulário (que é recarregar a página)
-        event.preventDefault();
-
-        // 2. Simula o envio (aqui você pode ver os dados no console do navegador)
-        const formData = new FormData(contactForm);
-        console.log('Dados do formulário:');
-        for (let [key, value] of formData.entries()) {
-            console.log(key + ': ' + value);
-        }
+    /* ---------------------------------- */
+    /* LÓGICA DE ENVIO DE FORMULÁRIOS  */
+    /* ---------------------------------- */
+    const forms = document.querySelectorAll('#contact-form, #general-contact-form');
+    
+    forms.forEach(form => {
+        const resultDiv = form.parentNode.querySelector('#form-result');
         
-        // 3. Mostra a mensagem de sucesso
-        const successMessage = document.getElementById('success-message');
-        successMessage.style.display = 'block';
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+            
+            if(resultDiv) {
+                resultDiv.style.display = 'block';
+                resultDiv.innerHTML = "Enviando...";
+                resultDiv.style.backgroundColor = '#dcd0ff'; // Lilás
+                resultDiv.style.color = '#5c5c5c';
+            }
 
-        // 4. Limpa o formulário
-        contactForm.reset();
-
-        // 5. Esconde a mensagem de sucesso após 5 segundos
-        setTimeout(() => {
-            successMessage.style.display = 'none';
-        }, 5000);
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let jsonResponse = await response.json();
+                if (resultDiv) {
+                    if (response.status == 200) {
+                        resultDiv.innerHTML = "Mensagem enviada com sucesso!";
+                        resultDiv.style.backgroundColor = '#e8f5e9'; // Verde
+                        resultDiv.style.color = '#2e7d32';
+                    } else {
+                        console.log(response);
+                        resultDiv.innerHTML = jsonResponse.message;
+                        resultDiv.style.backgroundColor = '#f8c8dc'; // Rosa
+                        resultDiv.style.color = '#c62828';
+                    }
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                if(resultDiv) {
+                    resultDiv.innerHTML = "Algo deu errado. Tente novamente mais tarde.";
+                    resultDiv.style.backgroundColor = '#f8c8dc';
+                    resultDiv.style.color = '#c62828';
+                }
+            })
+            .then(function() {
+                form.reset();
+                if(resultDiv) {
+                    setTimeout(() => {
+                        resultDiv.style.display = 'none';
+                    }, 5000);
+                }
+            });
+        });
     });
-}
-// Lógica para o Acordeão do FAQ
-document.querySelectorAll('.faq-question').forEach(button => {
-    button.addEventListener('click', () => {
-        const faqAnswer = button.nextElementSibling;
 
-        button.classList.toggle('active');
-
-        if (button.classList.contains('active')) {
-            faqAnswer.style.maxHeight = faqAnswer.scrollHeight + 'px';
-        } else {
-            faqAnswer.style.maxHeight = 0;
-        }
-    });
 });
-
-
-// Lógica para o formulário de contato geral
-const generalContactForm = document.getElementById('general-contact-form');
-
-if (generalContactForm) {
-    generalContactForm.addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const successMessage = document.getElementById('general-success-message');
-        successMessage.style.display = 'block';
-
-        generalContactForm.reset();
-
-        setTimeout(() => {
-            successMessage.style.display = 'none';
-        }, 5000);
-    });
-}
