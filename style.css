@@ -242,3 +242,59 @@ main > .page-section:first-child {
 .faq-answer.open { max-height: 200px; }
 .form-group { margin-bottom: 1.25rem; }
 .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: #666; }
+
+
+/* ============================================= */
+/* REGRAS DE RESPONSIVIDADE             */
+/* ============================================= */
+
+/* Para tablets e telemóveis (telas até 768px de largura) */
+@media (max-width: 768px) {
+    .page-section {
+        padding: 60px 15px; /* Menos espaçamento lateral */
+        min-height: auto;   /* Em telemóveis, a altura 100vh pode ser excessiva. Deixamos o conteúdo ditar a altura. */
+    }
+
+    .section-title {
+        font-size: 1.8rem; /* Títulos menores */
+    }
+
+    .site-menu li a {
+        padding: 12px 15px; /* Menu com menos espaçamento */
+        font-size: 0.9rem;
+    }
+
+    .pet-card {
+        width: 100%; /* Em telas muito pequenas, o card ocupa a largura toda */
+        max-width: 320px; /* Mas limitamos para não ficar gigante */
+    }
+
+    .contact-wrapper {
+        flex-direction: column; /* Empilha as colunas de contato */
+        gap: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 1.5rem; /* Título do banner menor */
+    }
+    
+    #inicio .pet-catalog {
+        max-height: 90vh; /* Aumenta a altura da área de scroll para facilitar o uso */
+    }
+}
+
+/* Para telemóveis muito pequenos (telas até 480px) */
+@media (max-width: 480px) {
+    .site-menu ul {
+        justify-content: space-around; /* Distribui melhor os itens do menu */
+    }
+
+    .site-menu li a {
+        padding: 10px 8px; /* Ainda menos espaçamento no menu */
+        font-size: 0.8rem;
+    }
+
+    .contact-form-section {
+        padding: 25px; /* Menos espaçamento nos formulários */
+    }
+}
