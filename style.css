@@ -2,17 +2,24 @@
 /* ESTILOS GLOBAIS E BASE        */
 /* ---------------------------------- */
 :root {
-    --pink-pastel: #f8c8dc; /* Rosa pastel */
-    --lilac-pastel: #dcd0ff; /* Lilás pastel */
+    --pink-pastel: #f8c8dc;
+    --lilac-pastel: #dcd0ff;
     --white: #ffffff;
     --text-color: #5c5c5c;
     font-family: Arial, sans-serif;
+    font-family: "Matemasie", sans-serif;
+    font-family: "Nerko One", cursive;
+}
+
+html {
+    scroll-behavior: smooth;
+    
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: #fdf9ff; /* Um branco levemente lilás para o fundo */
+    background-color: #fdf9ff;
     color: var(--text-color);
 }
 
@@ -20,23 +27,21 @@ body {
 /* CABEÇALHO, MENU E RODAPÉ       */
 /* ---------------------------------- */
 .site-header {
+    font-family: "Matemasie", sans-serif;
+    font-size: x-large;
     background-color: var(--pink-pastel);
     padding: 20px;
     text-align: center;
     color: var(--white);
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-}
-
-.site-header h1 {
-    margin: 0;
-    letter-spacing: 10px;
-    text-shadow: 1px 1px 2px violet;
-    font-family:"Cherry Bomb One", system-ui;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.705);
 }
 
 .site-menu {
     background-color: var(--pink-pastel);
     padding: 5px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .site-menu ul {
@@ -48,14 +53,15 @@ body {
 }
 
 .site-menu li a {
-    font-family: "Sriracha", cursive;
-    text-shadow: 1px 1px 2px violet;
-    letter-spacing: 5px;
     display: block;
     padding: 15px 25px;
     text-decoration: none;
     color: var(--white);
+    font-family: "Nerko One", cursive;
+    letter-spacing: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.705);
     font-weight: bold;
+    font-size: large;
     transition: background-color 0.3s;
 }
 
@@ -71,22 +77,79 @@ body {
 }
 
 /* ---------------------------------- */
-/* CORPO PRINCIPAL DO SITE        */
+/* ESTILOS PARA AS SEÇÕES         */
 /* ---------------------------------- */
-.site-body {
-    padding: 30px;
-    min-height: 70vh;
+.page-section {
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+    border-bottom: 1px solid #f0e6ff;
+    scroll-margin-top: 60px;
+}
+
+h1{
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.705);
+
+}
+
+h2{
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.705);
+
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--lilac-pastel);
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+main > .page-section:first-child {
+    padding-top: 40px;
 }
 
 /* ---------------------------------- */
-/* PÁGINA 01 e 02 - CATÁLOGOS      */
+/* CATÁLOGOS E CARDS              */
 /* ---------------------------------- */
 .pet-catalog {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 25px;
+    max-width: 1200px;
 }
+
+/* ALTERAÇÃO PARA O SCROLL DOS PETS */
+#inicio .pet-catalog {
+    max-height: 780px; /* Altura máxima para aproximadamente 2 linhas de cards */
+    overflow-y: auto;   /* Adiciona o scroll vertical quando o conteúdo ultrapassa a altura */
+    padding: 20px;      /* Espaçamento interno para a barra de rolagem não colar nos cards */
+    box-sizing: border-box;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5); /* Fundo levemente branco para destacar a área de scroll */
+}
+
+/* Estilização da barra de rolagem (opcional, mas melhora o design) */
+#inicio .pet-catalog::-webkit-scrollbar {
+    width: 12px;
+}
+
+#inicio .pet-catalog::-webkit-scrollbar-track {
+    background: rgba(220, 208, 255, 0.2); /* Fundo da trilha lilás bem claro */
+    border-radius: 10px;
+}
+
+#inicio .pet-catalog::-webkit-scrollbar-thumb {
+    background-color: var(--lilac-pastel); /* Cor da barra de rolagem */
+    border-radius: 10px;
+    border: 3px solid #fdf9ff; /* Cria um espaçamento ao redor da barra */
+}
+/* FIM DA ALTERAÇÃO */
 
 .pet-card {
     background-color: var(--white);
@@ -96,6 +159,7 @@ body {
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
     width: 280px;
+    flex-shrink: 0; /* Impede que os cards encolham */
 }
 
 .pet-card:hover {
@@ -131,321 +195,50 @@ body {
     margin-bottom: 10px;
 }
 
-/* Modal (Galeria de Fotos) */
+/* ---------------------------------- */
+/* MODAL (GALERIA) E OUTROS       */
+/* ---------------------------------- */
 .modal {
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    visibility: hidden;
-    opacity: 0;
+    display: flex; justify-content: center; align-items: center;
+    visibility: hidden; opacity: 0;
     transition: visibility 0s 0.3s, opacity 0.3s;
 }
-
-.modal.visible {
-    visibility: visible;
-    opacity: 1;
-    transition: visibility 0s, opacity 0.3s;
-}
-
-.modal-content {
-    position: relative;
-    background-color: var(--white);
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 90%;
-    max-height: 90%;
-}
-
-.modal-content .slider {
-    position: relative;
-}
-
-#modal-image {
-    max-width: 100%;
-    max-height: 80vh;
-    display: block;
-}
-
-.close-button {
-    position: absolute;
-    top: 10px;
-    right: 25px;
-    color: #aaa;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 16px;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    background-color: rgba(0,0,0,0.3);
-    user-select: none;
-    transition: background-color 0.3s;
-}
+.modal.visible { visibility: visible; opacity: 1; transition: visibility 0s, opacity 0.3s; }
+.modal-content { position: relative; background-color: var(--white); padding: 20px; border-radius: 10px; max-width: 90%; max-height: 90%; }
+.modal-content .slider { position: relative; }
+#modal-image { max-width: 100%; max-height: 80vh; display: block; }
+.close-button { position: absolute; top: 10px; right: 25px; color: #aaa; font-size: 35px; font-weight: bold; cursor: pointer; }
+.prev, .next { cursor: pointer; position: absolute; top: 50%; transform: translateY(-50%); padding: 16px; color: white; font-weight: bold; font-size: 20px; background-color: rgba(0,0,0,0.3); user-select: none; transition: background-color 0.3s; }
 .prev { left: 0; }
 .next { right: 0; }
 
-/* ---------------------------------- */
-/* PÁGINA 03 - AÇÕES SOCIAIS       */
-/* ---------------------------------- */
-.page-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
+.page-container { max-width: 1200px; margin: 0 auto; width: 100%; }
+.hero-banner { position: relative; height: 350px; border-radius: 10px; background-image: url('https://images.unsplash.com/photo-1541882430930-14e1e0063f45?q=80&w=2070&auto=format&fit=crop'); background-size: cover; background-position: center; color: white; display: flex; align-items: center; justify-content: center; text-align: center; margin-bottom: 40px; }
+.hero-banner::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.4); border-radius: 10px; }
+.hero-text { z-index: 2; padding: 20px; }
 
-.hero-banner {
-    position: relative;
-    height: 350px;
-    border-radius: 10px;
-    background-image: url('https://images.unsplash.com/photo-1541882430930-14e1e0063f45?q=80&w=2070&auto=format&fit=crop');
-    background-size: cover;
-    background-position: center;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin-bottom: 40px;
-}
+.contact-form-section { background-color: #fff; padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.07); max-width: 700px; margin: 0 auto; }
+.contact-form-section h2 { text-align: center; color: var(--lilac-pastel); }
 
-.hero-banner::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    border-radius: 10px;
-}
+#contact-form, #general-contact-form { display: flex; flex-direction: column; gap: 15px; }
+#contact-form input, #contact-form textarea, .form-group input, .form-group textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-family: Arial, sans-serif; box-sizing: border-box; }
+#contact-form button, #general-contact-form > button { background-color: var(--pink-pastel); color: white; border: none; padding: 15px; border-radius: 5px; font-size: 1rem; font-weight: bold; cursor: pointer; transition: background-color 0.3s; }
+#contact-form button:hover, #general-contact-form > button:hover { background-color: var(--lilac-pastel); }
+.form-result-message { margin-top: 20px; padding: 15px; border-radius: 5px; text-align: center; }
 
-.hero-text {
-    z-index: 2;
-    padding: 20px;
-}
-
-.hero-text h1 {
-    font-size: 2.5rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-}
-
-.help-section {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.help-section h2 {
-    font-size: 2rem;
-    color: var(--lilac-pastel);
-    margin-bottom: 30px;
-}
-
-.help-options {
-    display: flex;
-    justify-content: space-around;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.help-card {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-    width: 300px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.help-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-}
-
-.help-card svg {
-    color: var(--pink-pastel);
-    margin-bottom: 15px;
-}
-
-.contact-form-section {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
-    max-width: 700px;
-    margin: 0 auto 50px auto;
-}
-
-.contact-form-section h2 {
-    text-align: center;
-    color: var(--lilac-pastel);
-}
-.contact-form-section p {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-#contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-#contact-form input,
-#contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: Arial, sans-serif;
-    box-sizing: border-box;
-}
-
-#contact-form button {
-    background-color: var(--pink-pastel);
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#contact-form button:hover {
-    background-color: var(--lilac-pastel);
-}
-
-#success-message {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #e8f5e9;
-    color: #2e7d32;
-    border-radius: 5px;
-    text-align: center;
-}
-
-/* ---------------------------------- */
-/* PÁGINA 04 - CONTATO          */
-/* ---------------------------------- */
-.contact-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-.contact-header h1 {
-    color: var(--lilac-pastel);
-    font-size: 2.5rem;
-}
-
-.contact-wrapper {
-    display: flex;
-    gap: 40px;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
-.contact-info, .contact-form-col {
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-}
-
-.social-title {
-    margin-top: 30px;
-}
-
-.social-links {
-    display: flex;
-    gap: 15px;
-}
-.social-links a {
-    color: var(--lilac-pastel);
-    transition: color 0.3s;
-}
-.social-links a:hover {
-    color: var(--pink-pastel);
-}
-
-.faq-section {
-    margin-top: 40px;
-}
-.faq-item {
-    border-bottom: 1px solid #eee;
-}
-.faq-question {
-    width: 100%;
-    background: none;
-    border: none;
-    text-align: left;
-    padding: 15px 0;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    position: relative;
-    color: #555;
-}
-.faq-question::after {
-    content: '+';
-    position: absolute;
-    right: 5px;
-    font-size: 1.5rem;
-    color: var(--lilac-pastel);
-    transition: transform 0.3s;
-}
-.faq-question.active::after {
-    transform: rotate(45deg);
-}
-
-.faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-}
-.faq-answer p {
-    padding: 0 0 15px 0;
-    margin: 0;
-}
-.faq-answer.open {
-    max-height: 200px;
-}
-
-/* Formulário da página de contato */
-.form-group {
-    margin-bottom: 1.25rem;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #666;
-}
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: Arial, sans-serif;
-    box-sizing: border-box;
-}
-
-#general-contact-form > button {
-    width: 100%;
-    margin-top: 1rem;
-}
-
+.contact-header { text-align: center; margin-bottom: 40px; }
+.contact-header h1 { color: var(--lilac-pastel); font-size: 2.5rem; }
+.contact-wrapper { display: flex; gap: 40px; flex-wrap: wrap; justify-content: center; width: 100%;}
+.contact-info, .contact-form-col { flex: 1; min-width: 300px; max-width: 500px; }
+.faq-section { margin-top: 40px; }
+.faq-item { border-bottom: 1px solid #eee; }
+.faq-question { width: 100%; background: none; border: none; text-align: left; padding: 15px 0; font-size: 1rem; font-weight: bold; cursor: pointer; position: relative; color: #555; }
+.faq-question::after { content: '+'; position: absolute; right: 5px; font-size: 1.5rem; color: var(--lilac-pastel); transition: transform 0.3s; }
+.faq-question.active::after { transform: rotate(45deg); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.4s ease-out; }
+.faq-answer p { padding: 0 0 15px 0; margin: 0; }
+.faq-answer.open { max-height: 200px; }
+.form-group { margin-bottom: 1.25rem; }
+.form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; color: #666; }

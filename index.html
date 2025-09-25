@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BuscaPet - Encontre seu novo amigo</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Sriracha&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Matemasie&family=Nerko+One&display=swap');
     </style>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header class="site-header">
@@ -18,66 +20,318 @@
 
     <nav class="site-menu">
         <ul>
-            <li><a href="index.html" class="active">BuscaPet</a></li>
-            <li><a href="/buscamigo.html">BuscaMigo</a></li>
-            <li><a href="/buscajuda.html">BuscaJuda</a></li>
-            <li><a href="/contatos.html">Contato</a></li>
+            <li><a href="#inicio" class="active">BuscaPET</a></li>
+            <li><a href="#adotantes">BuscAMIGO</a></li>
+            <li><a href="#ajude">BuscAJUDA</a></li>
+            <li><a href="#contato">Contato</a></li>
         </ul>
     </nav>
 
     <main class="site-body">
-        <section class="pet-catalog">
-            
-            <!-- Pet 1 -->
-            <article class="pet-card" data-pet-id="1">
-                <div class="pet-image-container">
-                    <img src="https://placedog.net/300/300?id=1" alt="Foto do pet Caramelo">
-                </div>
-                <div class="pet-info">
-                    <h2>Caramelo</h2>
-                    <p><strong>Idade:</strong> 2 anos</p>
-                    <p><strong>Raça:</strong> SRD (Sem Raça Definida)</p>
-                    <p><strong>Personalidade:</strong> Muito dócil e adora um carinho na barriga.</p>
-                </div>
-            </article>
 
-            <!-- Pet 2 -->
-            <article class="pet-card" data-pet-id="2">
-                 <div class="pet-image-container">
-                    <img src="https://placedog.net/300/300?id=2" alt="Foto do pet Flocos">
+        <!-- ============================================= -->
+        <!-- SEÇÃO 01: INÍCIO (CATÁLOGO DE PETS)         -->
+        <!-- ============================================= -->
+        <section id="inicio" class="page-section">
+            <h2 class="section-title">Encontre seu Novo Amigo</h2>
+            <div class="pet-catalog">
+                <!-- Pet 1 -->
+                <article class="pet-card" data-pet-id="1">
+                    <div class="image-container">
+                        <img src="https://placedog.net/300/300?id=1" alt="Foto do pet Caramelo">
+                    </div>
+                    <div class="pet-info">
+                        <h2>Caramelo</h2>
+                        <p><strong>Idade:</strong> 2 anos</p>
+                        <p><strong>Raça:</strong> SRD (Vira-lata)</p>
+                        <p><strong>Personalidade:</strong> Dócil e adora um carinho na barriga.</p>
+                    </div>
+                </article>
+                <!-- Pet 2 -->
+                <article class="pet-card" data-pet-id="2">
+                    <div class="image-container">
+                        <img src="https://placedog.net/300/300?id=2" alt="Foto do pet Flocos">
+                    </div>
+                    <div class="pet-info">
+                        <h2>Flocos</h2>
+                        <p><strong>Idade:</strong> 4 anos</p>
+                        <p><strong>Raça:</strong> Poodle</p>
+                        <p><strong>Personalidade:</strong> Agitado e companheiro para todas as horas.</p>
+                    </div>
+                </article>
+                <!-- Pet 3 -->
+                <article class="pet-card" data-pet-id="3">
+                    <div class="image-container">
+                        <img src="https://placedog.net/300/300?id=3" alt="Foto da gata Luna">
+                    </div>
+                    <div class="pet-info">
+                        <h2>Luna (Gata)</h2>
+                        <p><strong>Idade:</strong> 1 ano</p>
+                        <p><strong>Raça:</strong> Siamês</p>
+                        <p><strong>Personalidade:</strong> Calma e observadora, ama um colo quentinho.</p>
+                    </div>
+                </article>
+                <!-- Pet 4 -->
+                <article class="pet-card" data-pet-id="4">
+                    <div class="image-container">
+                        <img src="https://placedog.net/300/300?id=4" alt="Foto do pet Thor">
+                    </div>
+                    <div class="pet-info">
+                        <h2>Thor</h2>
+                        <p><strong>Idade:</strong> 3 anos</p>
+                        <p><strong>Raça:</strong> Pastor Alemão</p>
+                        <p><strong>Personalidade:</strong> Leal, protetor e muito inteligente.</p>
+                    </div>
+                </article>
+                <!-- Pet 5 -->
+                <article class="pet-card" data-pet-id="5">
+                    <div class="image-container">
+                        <img src="https://placedog.net/300/300?id=5" alt="Foto da pet Mel">
+                    </div>
+                    <div class="pet-info">
+                        <h2>Mel</h2>
+                        <p><strong>Idade:</strong> 5 anos</p>
+                        <p><strong>Raça:</strong> Golden Retriever</p>
+                        <p><strong>Personalidade:</strong> Amigável com todos, perfeita para famílias.</p>
+                    </div>
+                </article>
+                <!-- Pet 6 -->
+                <article class="pet-card" data-pet-id="6">
+                    <div class="image-container">
+                        <img src="https://placedog.net/300/300?id=6" alt="Foto do pet Bidu">
+                    </div>
+                    <div class="pet-info">
+                        <h2>Bidu</h2>
+                        <p><strong>Idade:</strong> 6 meses</p>
+                        <p><strong>Raça:</strong> SRD (Vira-lata)</p>
+                        <p><strong>Personalidade:</strong> Filhote curioso e cheio de energia para brincar.</p>
+                    </div>
+                </article>
+                <!-- Pet 7 -->
+                <article class="pet-card" data-pet-id="7">
+                    <div class="image-container">
+                        <img src="https://placedog.net/300/300?id=7" alt="Foto da pet Nina">
+                    </div>
+                    <div class="pet-info">
+                        <h2>Nina</h2>
+                        <p><strong>Idade:</strong> 2 anos</p>
+                        <p><strong>Raça:</strong> Bulldog Francês</p>
+                        <p><strong>Personalidade:</strong> Tranquila, adora um sofá e não late muito.</p>
+                    </div>
+                </article>
+                <!-- Pet 8 -->
+                <article class="pet-card" data-pet-id="8">
+                    <div class="image-container">
+                        <img src="https://placedog.net/300/300?id=8" alt="Foto do pet Zeca">
+                    </div>
+                    <div class="pet-info">
+                        <h2>Zeca</h2>
+                        <p><strong>Idade:</strong> 7 anos</p>
+                        <p><strong>Raça:</strong> SRD (Vira-lata)</p>
+                        <p><strong>Personalidade:</strong> Um senhorzinho calmo que só quer um cantinho para descansar.
+                        </p>
+                    </div>
+                </article>
+                <!-- Pet 9 -->
+                <article class="pet-card" data-pet-id="9">
+                    <div class="image-container">
+                        <img src="https://placedog.net/300/300?id=9" alt="Foto da gata Frida">
+                    </div>
+                    <div class="pet-info">
+                        <h2>Frida (Gata)</h2>
+                        <p><strong>Idade:</strong> 3 anos</p>
+                        <p><strong>Raça:</strong> SRD</p>
+                        <p><strong>Personalidade:</strong> Independente mas carinhosa nos momentos dela.</p>
+                    </div>
+                </article>
+                <!-- Pet 10 -->
+                <article class="pet-card" data-pet-id="10">
+                    <div class="image-container">
+                        <img src="https://placedog.net/300/300?id=10" alt="Foto do pet Marley">
+                    </div>
+                    <div class="pet-info">
+                        <h2>Marley</h2>
+                        <p><strong>Idade:</strong> 1 ano</p>
+                        <p><strong>Raça:</strong> Labrador</p>
+                        <p><strong>Personalidade:</strong> Brincalhão, ama água e passeios longos.</p>
+                    </div>
+                </article>
+                <!-- Pet 11 -->
+                <article class="pet-card" data-pet-id="11">
+                    <div class="image-container">
+                        <img src="https://placedog.net/300/300?id=11" alt="Foto do pet Chico">
+                    </div>
+                    <div class="pet-info">
+                        <h2>Chico</h2>
+                        <p><strong>Idade:</strong> 4 anos</p>
+                        <p><strong>Raça:</strong> Pug</p>
+                        <p><strong>Personalidade:</strong> Engraçado e um pouco teimoso, um ótimo companheiro.</p>
+                    </div>
+                </article>
+                <!-- Pet 12 -->
+                <article class="pet-card" data-pet-id="12">
+                    <div class="image-container">
+                        <img src="https://placedog.net/300/300?id=12" alt="Foto da pet Cacau">
+                    </div>
+                    <div class="pet-info">
+                        <h2>Cacau</h2>
+                        <p><strong>Idade:</strong> 8 meses</p>
+                        <p><strong>Raça:</strong> SRD (Vira-lata)</p>
+                        <p><strong>Personalidade:</strong> Tímida no início, mas depois vira um grude.</p>
+                    </div>
+                </article>
+                <!-- Pet 13 -->
+                <article class="pet-card" data-pet-id="13">
+                    <div class="image-container">
+                        <img src="https://placedog.net/300/300?id=13" alt="Foto do pet Romeu">
+                    </div>
+                    <div class="pet-info">
+                        <h2>Romeu</h2>
+                        <p><strong>Idade:</strong> 5 anos</p>
+                        <p><strong>Raça:</strong> Beagle</p>
+                        <p><strong>Personalidade:</strong> Curioso e sempre farejando algo novo.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-                </div>
-                <div class="pet-info">
-                    <h2>Flocos</h2>
-                    <p><strong>Idade:</strong> 4 anos</p>
-                    <p><strong>Raça:</strong> Poodle</p>
-                    <p><strong>Personalidade:</strong> Agitado e brincalhão, companheiro para todas as horas.</p>
-                </div>
-            </article>
+        <!-- ============================================= -->
+        <!-- SEÇÃO 02: QUERO ADOTAR (PERFIS)             -->
+        <!-- ============================================= -->
+        <section id="adotantes" class="page-section">
+            <h2 class="section-title">Pessoas que Querem Dar um Lar</h2>
+            <div class="pet-catalog">
+                <!-- Perfil 1 -->
+                <article class="pet-card">
+                    <img src="https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=300&auto=format&fit=crop"
+                        alt="Foto da pessoa">
+                    <div class="pet-info">
+                        <h2>Mariana Silva</h2>
+                        <p class="pet-code">COD.: 1001</p>
+                        <p><strong>Cidade:</strong> Florianópolis / SC</p>
+                        <p><strong>Interesses:</strong> Cães, porte pequeno, filhotes.</p>
+                        <p><strong>Rotina:</strong> "Trabalho em casa, tenho quintal e muito amor para dar!"</p>
+                    </div>
+                </article>
+                <!-- Perfil 2 -->
+                <article class="pet-card">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop"
+                        alt="Foto da pessoa">
+                    <div class="pet-info">
+                        <h2>João Pereira</h2>
+                        <p class="pet-code">COD.: 1002</p>
+                        <p><strong>Cidade:</strong> São Paulo / SP</p>
+                        <p><strong>Interesses:</strong> Gatos, qualquer idade.</p>
+                        <p><strong>Rotina:</strong> "Moro em apartamento telado e procuro um companheiro tranquilo."</p>
+                    </div>
+                </article>
+                <!-- Perfil 3 -->
+                <article class="pet-card">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=300&auto=format&fit=crop"
+                        alt="Foto da pessoa">
+                    <div class="pet-info">
+                        <h2>Família Oliveira</h2>
+                        <p class="pet-code">COD.: 1003</p>
+                        <p><strong>Cidade:</strong> Curitiba / PR</p>
+                        <p><strong>Interesses:</strong> Cães, porte médio, brincalhão.</p>
+                        <p><strong>Rotina:</strong> "Temos filhos e queremos um cão para crescer com eles."</p>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-            <!-- Pet 3 -->
-            <article class="pet-card" data-pet-id="3">
-                <div class="pet-image-container">
-                    <img src="https://placedog.net/300/300?id=3" alt="Foto do pet Luna">
+        <!-- ============================================= -->
+        <!-- SEÇÃO 03: AÇÕES SOCIAIS                     -->
+        <!-- ============================================= -->
+        <section id="ajude" class="page-section">
+            <div class="page-container">
+                <section class="hero-banner">
+                    <div class="hero-text">
+                        <h1>Sua Ajuda Profissional Transforma Vidas</h1>
+                        <p>Seja um parceiro do BuscaPet e faça a diferença.</p>
+                    </div>
+                </section>
+                <section class="contact-form-section">
+                    <h2>Entre em Contato</h2>
+                    <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="SUA_CHAVE_DE_ACESSO_AQUI">
+                        <input type="hidden" name="subject" value="Novo Contato de Parceiro - BuscaPet">
+                        <label for="name">Nome / Empresa:</label>
+                        <input type="text" id="name" name="name" required>
+                        <label for="email">Seu e-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                        <label for="message">Como gostaria de ajudar?</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                        <button type="submit">Enviar Mensagem</button>
+                    </form>
+                    <div id="form-result-partner" class="form-result-message" style="display:none;"></div>
+                </section>
+            </div>
+        </section>
 
+        <!-- ============================================= -->
+        <!-- SEÇÃO 04: CONTATO                           -->
+        <!-- ============================================= -->
+        <section id="contato" class="page-section">
+            <div class="page-container">
+                <header class="contact-header">
+                    <h1>Fale Conosco</h1>
+                </header>
+                <div class="contact-wrapper">
+                    <div class="contact-info">
+                        <h3>Nossos Canais</h3>
+                        <p><strong>E-mail:</strong> buscapet.contatos@gmail.com</p>
+                        <div class="faq-section">
+                            <h3>Perguntas Frequentes</h3>
+                            <div class="faq-item">
+                                <button class="faq-question">Como funciona o processo de adoção?</button>
+                                <div class="faq-answer">
+                                    <p>Nosso processo envolve o preenchimento de um formulário, uma entrevista e uma
+                                        visita para garantir que o pet e a nova família sejam compatíveis.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <button class="faq-question">Quais são os custos para adotar?</button>
+                                <div class="faq-answer">
+                                    <p>Não há custo para adotar. Pedimos apenas uma contribuição voluntária para ajudar
+                                        a cobrir os custos de vacina e castração dos outros animais.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-col">
+                        <form id="general-contact-form" action="https://api.web3forms.com/submit" method="POST"
+                            class="contact-form-section">
+                            <h2>Envie sua Mensagem</h2>
+                            <input type="hidden" name="access_key" value="SUA_CHAVE_DE_ACESSO_AQUI">
+                            <input type="hidden" name="subject" value="Novo Contato Geral - BuscaPet">
+                            <div class="form-group">
+                                <label for="general-name">Seu nome:</label>
+                                <input type="text" id="general-name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="general-email">Seu e-mail:</label>
+                                <input type="email" id="general-email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="general-message">Mensagem:</label>
+                                <textarea id="general-message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit">Enviar</button>
+                            <div id="form-result-general" class="form-result-message" style="display:none;"></div>
+                        </form>
+                    </div>
                 </div>
-                <div class="pet-info">
-                    <h2>Luna</h2>
-                    <p><strong>Idade:</strong> 1 ano</p>
-                    <p><strong>Raça:</strong> Siamês</p>
-                    <p><strong>Personalidade:</strong> Calma e observadora, ama um colo quentinho.</p>
-                </div>
-            </article>
-            
-            <!-- Adicione mais pets aqui seguindo o mesmo modelo -->
-            
-            </section>
+            </div>
+        </section>
+
     </main>
 
     <footer class="site-footer">
         <p>&copy; 2025 BuscaPet. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Modal (Janela de Fotos) -->
     <div id="pet-modal" class="modal">
         <div class="modal-content">
             <span class="close-button">&times;</span>
@@ -91,4 +345,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
